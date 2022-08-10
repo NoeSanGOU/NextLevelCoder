@@ -1,15 +1,24 @@
 import pygame
 from dino_runner.components.obstacles.cactus import Cactus
 from dino_runner.utils.constants import SMALL_CACTUS
-
+#TAREA:
+from dino_runner.utils.constants import LARGE_CACTUS
 class ObstacleManager:
     def __init__(self):
         self.obstacles = []
 
     def update(self,game):
     #si la longitud es cero , deberia añadir un obstaculo
+        #rount = 0
         if len(self.obstacles) == 0:
-            self.obstacles.append(Cactus(SMALL_CACTUS))
+            self.obstacles.append(Cactus(SMALL_CACTUS)) or self.obstacles.append(Cactus(LARGE_CACTUS))
+
+        
+            #zip() chain()
+            rount +=1
+            #aniadir otros obstaculos(cactus largos )
+            #self.obstacles.append(Cactus(SMALL_CACTUS))
+
 
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed, self.obstacles)
