@@ -30,7 +30,7 @@ class Game:
         self.running = True
         while self.running :
             if not self.playing:
-                self.show_menu()
+                self.show_menu() #andself.show_another_things()
         pygame.display.quit()
         pygame.quit()
 
@@ -83,7 +83,7 @@ class Game:
    
     def draw_score(self):
         font = pygame.font.Font(FONT_STYLE, 22)
-        text = font.render(f"Points: {self.points}", True, (0,0,0))#change color
+        text = font.render(f"Points: {self.points}", True, (0,0,255))#change color
         text_rect = text.get_rect()
         text_rect.center = (1000, 50)
         self.screen.blit(text, text_rect)
@@ -96,21 +96,48 @@ class Game:
 
             if event.type == pygame.KEYDOWN:
                 self.run()
-
+    #TAREA
+    #def show_another_things(self,text):
+     #   if self.death_count == 0:
+      #      font = pygame.font.Font(FONT_STYLE, 30)
+       #     text = font.render(text, True, (128,0,128))
+        #    text_rect = text.get_rect()
+         #   text_rect.center = (450,300)
+          #  self.screen.blit(text, text_rect)
 
     def show_menu(self):
-        self.screen.fill(255,255,255)#change color
+        #print(self.screen)
+        self.screen.fill((255,153,153))#change color screen.fill((0, 0, 0)).
         half_screen_height = SCREEN_HEIGHT // 2
         half_screen_width = SCREEN_WIDTH // 2
         
         if self.death_count == 0:
             font = pygame.font.Font(FONT_STYLE, 30)
-            text = font.render("Press any key to start", True, (0,0,0))
+            text = font.render("Press any key to start", True, (128,0,128))
             text_rect = text.get_rect()
             text_rect.center = (half_screen_width, half_screen_height)
             self.screen.blit(text, text_rect)
-            
+        #TAREA    
         elif self.death_count > 0:
+            font = pygame.font.Font(FONT_STYLE, 30)
+            text = font.render("Press any key to restart", True, (178,34,34))
+            text_rect = text.get_rect()
+            text_rect.center = (half_screen_width, half_screen_height)
+            self.screen.blit(text, text_rect)
+            #font = pygame.font.Font(FONT_STYLE, 30)
+            #text_2 = font.render(text, True, (128,0,128))
+            #text_rect_2= text_2.get_rect()
+            #text_rect_2.center = (450,300)
+            #self.screen.blit(text_2, text_rect_2)
+
+        elif self.death_count == 0:
+            font = pygame.font.Font(FONT_STYLE, 30)
+           
+        
+            #TAREA
+            #mostrar un mnsaje para reiniciar  LISTO
+            #mostrar puntos actuales\puntos reiniciados
+            #mostrar numero de muertes
             pass
         self.screen.blit(RUNNING[0], (half_screen_width - 20, half_screen_height - 140))
 
