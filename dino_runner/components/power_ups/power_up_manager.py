@@ -17,7 +17,7 @@ class PowerUpManager:
                 self.power_ups.append(Shield())
                
     def generate_power_up_hammer(self, points):
-        if len(self.power_ups) == 0:
+        if len(self.power_ups) == 1:
             if self.when_appears == points:
                 self.when_appears = random.randint(self.when_appears + 100, self.when_appears + 150)
                 self.power_ups.append(Hammer())
